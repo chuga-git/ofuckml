@@ -14,7 +14,7 @@ let lexer (text : string) : token list =
     | ']' -> RSquare :: acc
     | _ -> acc
   in
-  String.to_seq text |> List.of_seq |> List.fold_left lex [] |> List.rev
+  String.to_seq text |> Seq.fold_left lex [] |> List.rev
 
 let eval (tokens : token list) =
   let cells = Array.make 30_000 0 in
